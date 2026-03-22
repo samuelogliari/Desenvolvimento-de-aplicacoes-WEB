@@ -3,12 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desenvolvimento de Aplicações</title>
+    <title>Meus Projetos</title>
+    <style>
+        :root {
+            --bg-dark: #0b1f16;
+            --bg-mid: #123728;
+            --bg-soft: #2e5f47;
+            --card-bg: rgba(7, 24, 17, 0.72);
+            --text-main: #e7fff1;
+            --text-soft: #b9e8ce;
+            --accent: #76d7a2;
+            --accent-strong: #4bb57f;
+            --border: rgba(167, 239, 200, 0.28);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-main);
+            background:
+                radial-gradient(circle at 20% 20%, rgba(79, 156, 114, 0.35), transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(27, 78, 57, 0.5), transparent 50%),
+                linear-gradient(140deg, var(--bg-dark), var(--bg-mid) 45%, var(--bg-soft));
+        }
+
+        main {
+            width: min(680px, 100%);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px 32px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: var(--text-soft);
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: var(--text-main);
+            background: rgba(20, 58, 42, 0.55);
+            border: 1px solid rgba(180, 246, 214, 0.2);
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-weight: 600;
+            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+            background: rgba(39, 105, 74, 0.72);
+            border-color: var(--accent);
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--accent-strong);
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
-    <ul>
-        <li><a href="./Aula 0303/Index.html"> Aula 0303</a></li>
-        <li><a href="./Aula 1003/index.html"> Aula 1003</a></li>
-    </ul>
+    <main>
+        <h1>Meus Projetos</h1>
+        <p>Escolha uma aula para abrir os exercícios e exemplos já desenvolvidos.</p>
+        <ul>
+            <li><a href="./Aula 0303/Index.html">Aula 0303</a></li>
+            <li><a href="./Aula 1003/index.html">Aula 1003</a></li>
+        </ul>
+    </main>
 </body>
 </html>
