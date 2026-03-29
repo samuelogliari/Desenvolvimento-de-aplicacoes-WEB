@@ -34,7 +34,6 @@ function adicionaSinalCalc(sinal) {
   }
   resultado.innerText += sinal;
 }
-
 function calcular(evento) {
   console.log(evento);
   if (evento.key == "Enter") {
@@ -58,19 +57,16 @@ function calcular(evento) {
     resultado.innerText = "Aniversário do Gabriel e PT"
   }
 }
-
 function main() {
   document.addEventListener("keydown", function (evento) {
     evento.preventDefault();
     calcular(evento);
   });
 }
-
 function tecladoNumerico() {
   document.addEventListener("keydown", function (evento) {
     if (!isNaN(evento.key)) {
       adicionaNumeroCalc(evento.key);
-      
     }
     if (
       evento.key == "/" ||
@@ -83,6 +79,5 @@ function tecladoNumerico() {
     if (evento.key == "Backspace"){
       apagar();
     }
-      
   });
 }
