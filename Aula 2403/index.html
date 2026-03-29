@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="botoes">
+      <p id="numero" class="">0</p>
+      <div class="linhaBotoes">
+        <button id="mais" class="botaoCalculo"  onclick="adicionaSinalCalc('+')">+</button>
+        <button class="botaoNumero" onclick="adicionaNumeroCalc('1')">1</button>
+        <button class="botaoNumero" onclick="adicionaNumeroCalc('2')">2</button>
+        <button class="botaoNumero" onclick="adicionaNumeroCalc('3')">3</button>
+      </div>
+      <div class="linhaBotoes">
+        <button id="menos" class="botaoCalculo" onclick="adicionaSinalCalc('-')">-</button>
+        <button class="botaoNumero" onclick="adicionaNumeroCalc('4')">4</button>
+        <button class="botaoNumero" onclick="adicionaNumeroCalc('5')">5</button>
+        <button class="botaoNumero" onclick="adicionaNumeroCalc('6')">6</button>
+      </div>
+      <div class="linhaBotoes">
+        <button id="vezes" class="botaoCalculo" onclick="adicionaSinalCalc('*')">*</button>
+        <button class="botaoNumero" onclick="adicionaNumeroCalc('7')">7</button>
+        <button class="botaoNumero" onclick="adicionaNumeroCalc('8')">8</button>
+        <button class="botaoNumero" onclick="adicionaNumeroCalc('9')">9</button>
+      </div>
+      <div class="linhaBotoes">
+        <button id="dividido" class="botaoCalculo" onclick="adicionaSinalCalc('/')">/</button>
+        <button class="zero botaoCalculo"  onclick="adicionaNumeroCalc('0')">0</button>
+        <button class="apagar botaoCalculo" onclick="apagar()"> ←</button>
+      </div>
+    </section>
+    <script src="./index.js"></script>
+  </body>
+</html>
