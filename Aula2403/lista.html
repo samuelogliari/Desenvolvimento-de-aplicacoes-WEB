@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista Input</title>
+
+<style>
+  #inp{
+    font-size: 40px;
+  }
+
+  label{
+    font-size: 40px;
+  }
+
+  #botao{
+    font-size: 30px;
+    padding: 6px 5px 0px 5px;
+  }
+
+li {
+  font-size: 50px;
+}
+
+</style>
+
+  </head>
+  <body>
+    <label for="inp"> Escreva sua palavra
+      <input id="inp" type="text"/>
+    </label>
+    <button id="botao" onclick="adicionaLi()"> Executar</button>
+    <ul id="list"></ul>
+    <script>
+
+      const itemInput = document.getElementById("inp")
+      const list = document.getElementById("list")
+
+
+      function adicionaLi(){
+      const li = document.createElement("li")
+      li.innerText = itemInput.value;
+      list.appendChild(li);
+      itemInput.value = "";
+
+      console.log(li, itemInput.value)
+
+      }
+
+
+
+
+    </script>
+
+  </body>
+</html>

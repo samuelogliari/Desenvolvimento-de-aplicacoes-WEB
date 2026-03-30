@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Input</title>
+  </head>
+
+  <body>
+    <p id="numero">0</p>
+    <button id="mais">+</button>
+    <button id="menos">-</button>
+
+    <script>
+      let valor = 0;
+      const aumentar = document.getElementById("mais");
+      const diminuir = document.getElementById("menos");
+      const contador = document.getElementById("numero");
+
+      function aumentar1() {
+        contador.textContent = valor;
+        valor++;
+      }
+
+      function diminuir1() {
+        contador.textContent = valor;
+        valor--;
+      }
+
+      mais.addEventListener("click", aumentar1);
+      menos.addEventListener("click", diminuir1);
+
+      //  botao.addEventListener ('click', function(){
+      //       console.log("Batata")
+      //  });
+    </script>
+  </body>
+</html>
