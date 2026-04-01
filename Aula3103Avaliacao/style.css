@@ -1,0 +1,91 @@
+body {
+  background-color: azure;
+  margin: 0px;
+  border: 0px;
+}
+
+section {
+  background-color: azure;
+  margin: 0px;
+  padding: 0px 0px 0px 10px;
+}
+
+footer {
+  background-color: gray;
+  margin: 0px;
+  padding: 0px 0px 0px 10px;
+}
+
+#rovedinha {
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  justify-content: center;
+  margin: 0px;
+}
+
+header {
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  border: 0px;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  background-color: gray;
+  
+}
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #49c3d0;
+}
+
+#angus {
+  height: 400px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textos {
+  display: flex;
+  justify-content: space-around;
+  align-items: right;
+  font: 60px;
+  width: 300px;
+}
+
+#musica {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#curtir{
+    height: 50px;
+    width: 100px;
+}
+
+#botaoMusica{
+    height: 300px;
+  width: 400px;
+}
+
+#botaoMusica2{
+    height: 300px;
+  width: 400px;
+}
