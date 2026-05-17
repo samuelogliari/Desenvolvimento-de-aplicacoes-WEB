@@ -9,6 +9,8 @@ CREATE TABLE ovo (
 CREATE TABLE produtoresovos (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  telefone CHAR(11) NOT NULL,
   cnpj CHAR(14) NOT NULL,
   ativo BOOLEAN NOT NULL
 );
