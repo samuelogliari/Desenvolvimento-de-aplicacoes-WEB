@@ -16,6 +16,7 @@ class OvosDao
 
   public function salvar(Ovos $ovo)
   {
+
     $sql = "INSERT INTO $this->tabela (tipo_criacao, cor_casca, tamanho, preco_unitario) VALUES (?, ?, ?, ?)";
     $stmt = $this->connection->prepare($sql);
     $stmt->execute([
@@ -25,6 +26,7 @@ class OvosDao
       $ovo->getPrecoUnitario()
     ]);
   }
+
 
   public function listar()
   {
