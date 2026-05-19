@@ -1,16 +1,16 @@
 <?php require_once __DIR__ . '/../controllers/Ovos.controller.php';
-$controller = new OvosController();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$controller = new OvosController(); //da acesso ao listar salvar do controller
+if ($_SERVER["REQUEST_METHOD"] == "POST") {//"Se formulario enviado, salvar"
   $controller->salvar();
 }
 $ovos = $controller->listar();
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br"> //idioma
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"> //acentos
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> //responsividade celular
   <title>Ovos</title>
   <link rel="stylesheet" href="../style.css">
 </head>
