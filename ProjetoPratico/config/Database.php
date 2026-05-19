@@ -1,21 +1,21 @@
 <?php
 
 // Responsável por criar e fornecer a conexão com o banco de dados
-class Database
+class Database //existe somente para criar a conexão PDO
 {
   public $connection; // conexão PDO acessada pelo DAO
-
-  public function __construct()
+// cria atributo connection para usar a baixo
+  public function __construct() //executa automaticamente $db = new Database();
   {
-    $host = "localhost";
+    $host = "localhost"; 
     $porta = "4777";
     $database = "webDB";
     $usuario = "postgres";
     $senha = "postgres";
 
     $dsn = "pgsql:host=$host;port=$porta;dbname=$database";
-
-    $this->connection = new PDO($dsn, $usuario, $senha);
+//data source name - monta a string de conexão
+    $this->connection = new PDO($dsn, $usuario, $senha); //cria conexão no banco
     $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  }
-}
+  } // configurando comportamento do PDO, define como PDO trata erros, se der erro faça execption
+} //(erros podem passar silenciosamente, bom que avise quando estiver errado)
