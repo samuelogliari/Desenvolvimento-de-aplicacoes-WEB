@@ -137,3 +137,37 @@ a {
 a:hover {
   color: #785539;
 }
+
+.botaoEditar {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+  margin: 2px;
+  font-size: 16px;
+  background-color: #785539;
+  color: white;
+}
+
+.botaoExcluir {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+  margin: 2px;
+  font-size: 16px;
+   background-color: #c0392b;
+  color: white;
+}
+
+.botaoEditar:hover {
+  background-color: #d5b092;
+}
+
+.botaoExcluir:hover {
+  background-color: #e74c3c;
+}

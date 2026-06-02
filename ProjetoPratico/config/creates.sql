@@ -1,4 +1,4 @@
-CREATE TABLE ovo (
+CREATE TABLE ovos (
   id SERIAL PRIMARY KEY,
   tipo_criacao VARCHAR(50) NOT NULL,
   cor_casca VARCHAR(50) NOT NULL,

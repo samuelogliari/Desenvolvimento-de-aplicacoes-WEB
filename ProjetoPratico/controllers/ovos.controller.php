@@ -24,4 +24,43 @@ class OvosController //cria um controller, recebe ações, controla fluxos, DAO,
     header("Location: ovos.php"); //redireciona navegador, para poder reenviar formulario, funcionario fica na mesma página após enviar
   }
   
+  
+  // Busca um único ovo pelo id para pré-preencher o formulário de edição
+    public function buscarPorId($id)
+    {
+        $dao = new OvosDao();
+        return $dao->buscarPorId($id);
+    }
+
+
+    // Ação de atualização: lê o POST, atualiza no banco e redireciona
+    public function atualizar()
+    {
+        $ovo = new Ovos(
+            $_POST['tipo_criacao'],
+            $_POST['cor_casca'],
+            $_POST['tamanho'],
+            $_POST['preco_unitario'],
+            $_POST['id']
+        );
+
+
+        $dao = new OvosDao();
+        $dao->atualizar($ovo);
+
+
+        header("Location: ovos.php");
+    }
+
+
+    // Ação de deleção: lê o POST, remove do banco e redireciona
+    public function deletar()
+    {
+        $dao = new OvosDao();
+        $dao->deletar($_POST['id']);
+
+
+        header("Location: ovos.php");
+    }
+
 }

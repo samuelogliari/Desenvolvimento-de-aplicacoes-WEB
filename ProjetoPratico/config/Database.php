@@ -8,7 +8,7 @@ class Database //existe somente para criar a conexão PDO
   public function __construct() //executa automaticamente $db = new Database();
   {
     $host = "localhost"; 
-    $porta = "4777";
+    $porta = "5432";
     $database = "webDB";
     $usuario = "postgres";
     $senha = "postgres";

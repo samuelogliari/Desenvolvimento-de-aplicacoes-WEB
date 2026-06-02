@@ -47,4 +47,52 @@ class OvosDao                                             //cria a classe respon
     }
     return $ovos;
   }
+
+
+
+        // Busca um único ovo pelo seu id; retorna null se não encontrado
+    public function buscarPorId($id)
+    {
+        $sql  = "SELECT * FROM $this->tabela WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$id]);
+        $row  = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+        if (!$row) return null;
+
+
+        return new Ovos(
+            $row['tipo_criacao'],
+            $row['cor_casca'],
+            $row['tamanho'],
+            $row['preco_unitario'],
+            $row['id']
+        );
+    }
+
+
+    // Atualiza os dados de um ovo já existente no banco
+    public function atualizar(Ovos $ovo)
+    {
+        $sql  = "UPDATE $this->tabela SET tipo_criacao = ?, cor_casca = ?, tamanho = ?, preco_unitario = ? WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([
+            $ovo->getTipoCriacao(),
+            $ovo->getCorCasca(),
+            $ovo->getTamanho(),
+            $ovo->getPrecoUnitario(),
+            $ovo->getId()
+        ]);
+    }
+ // Remove um ovo pelo id
+    public function deletar($id)
+    {
+        $sql  = "DELETE FROM $this->tabela WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$id]);
+    }
+
+
+
 }
