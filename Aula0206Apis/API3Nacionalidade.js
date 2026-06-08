@@ -1,4 +1,4 @@
-async function buscarDados(url, endpoint, params) {
+async function buscarDadosNacionalidade(url, endpoint, params) {
   try {
     const response = await fetch(`${url}${endpoint}/${params}`);
     if (!response.ok) {
@@ -55,7 +55,7 @@ async function carregarNacionalidade() {
     return;
   }
 
-  const dados = await buscarDados(
+  const dados = await buscarDadosNacionalidade(
     "https://api.nationalize.io",
     "/",
     "?name=" + nome,

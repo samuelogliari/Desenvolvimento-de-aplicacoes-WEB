@@ -1,4 +1,4 @@
-async function buscarDados(url, endpoint, params) {
+async function buscarDadosGenero(url, endpoint, params) {
   try {
     const response = await fetch(`${url}${endpoint}/${params}`);
     if (!response.ok) {
@@ -52,7 +52,7 @@ async function carregarGeneros() {
     return;
   }
 
-  const dados = await buscarDados(
+  const dados = await buscarDadosGenero(
     "https://api.genderize.io",
     "/",
     "?name=" + nome,

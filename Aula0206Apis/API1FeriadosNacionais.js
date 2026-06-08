@@ -1,5 +1,6 @@
-async function buscarDados(url, endpoint, params) {
+async function buscarDadosFeriado(url, endpoint, params) {
   try {
+    console.log(`${url}/${endpoint}/${params}`);
     const response = await fetch(`${url}/${endpoint}/${params}`);
     if (!response.ok) {
       throw new Error(`Erro na requisição: ${response.status}`);
@@ -55,8 +56,8 @@ async function carregarFeriados() {
     alert("Digite um ano.");
     return;
   }
-
-  const dados = await buscarDados(
+  console.log(ano);
+  const dados = await buscarDadosFeriado(
     "https://brasilapi.com.br/api",
     "feriados/v1",
     ano,

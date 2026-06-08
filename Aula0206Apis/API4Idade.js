@@ -1,4 +1,4 @@
-async function buscarDados(url, endpoint, params) {
+async function buscarDadosIdade(url, endpoint, params) {
   try {
     const response = await fetch(`${url}${endpoint}/${params}`);
     if (!response.ok) {
@@ -50,7 +50,11 @@ async function carregarIdade() {
     return;
   }
 
-  const dados = await buscarDados("https://api.agify.io", "/", "?name=" + nome);
+  const dados = await buscarDadosIdade(
+    "https://api.agify.io",
+    "/",
+    "?name=" + nome,
+  );
 
   exibirDadosIdade(dados);
   return;
