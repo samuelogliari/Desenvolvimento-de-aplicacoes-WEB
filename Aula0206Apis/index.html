@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sameu</title>
+  </head>
+  <body>
+    <h1>Sameu</h1>
+    Feriados nacionais por ano: <br />
+    <label for="ano">Ano:</label>
+    <input type="number" min="1900" max="2199" id="ano" name="ano" />
+    <button onclick="carregarFeriados()">Buscar Feriados</button>
+    <div id="resultado"></div>
+
+    <br />
+    <hr />
+    Gênero por nome: <br />
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" />
+    <button onclick="carregarGeneros()">Buscar Gêneros</button>
+    <div id="resultado2"></div>
+
+    <br />
+    <hr />
+    Nacionalidade por nome: <br />
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome2" name="nome" />
+    <button onclick="carregarNacionalidade()">Buscar Nacionalidade</button>
+    <div id="resultado3"></div>
+
+    <br />
+    <hr />
+    Idade provável por nome: <br />
+    <label for="nome">Idade:</label>
+    <input type="text" id="nome3" name="nome" />
+    <button onclick="carregarIdade()">Buscar Idade</button>
+    <div id="resultado4"></div>
+
+    <script src="API1FeriadosNacionais.js"></script>
+    <script src="API2Generos.js"></script>
+    <script src="API3Nacionalidade.js"></script>
+    <script src="API4Idade.js"></script>
+  </body>
+</html>
