@@ -26,7 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $controller->salvar();
 
   }
+
 }
+
 
 // Se vier pela URL
 if (isset($_GET['id'])) {
@@ -56,18 +58,23 @@ $jogadores = $controller->listar();
       <label for="nome">Nome:</label>
       <input type="text" name="nome" id="nome" maxlength="100"
         value="<?= $jogadorEdicao ? $jogadorEdicao->getNome() : '' ?>" required>
+
       <label for="email">Email:</label>
       <input type="email" name="email" id="email" maxlength="100"
         value="<?= $jogadorEdicao ? $jogadorEdicao->getEmail() : '' ?>" required>
+
       <label for="cep">CEP:</label>
-      <input type="text" name="cep" id="cep" maxlength="10" pattern="[0-9]{5}-?[0-9]{3}" /* Validação de CEP no formato
-        00000-000 ou 00000000 */ value="<?= $jogadorEdicao ? $jogadorEdicao->getCep() : '' ?>" required>
+      <input type="text" name="cep" id="cep" maxlength="9" pattern="[0-9]{5}-?[0-9]{3}"
+        value="<?= $jogadorEdicao ? $jogadorEdicao->getCep() : '' ?>" required>
+
       <label for="rua">Rua:</label>
       <input type="text" name="rua" id="rua" maxlength="100"
         value="<?= $jogadorEdicao ? $jogadorEdicao->getRua() : '' ?>" required>
+
       <label for="bairro">Bairro:</label>
       <input type="text" name="bairro" id="bairro" maxlength="100"
         value="<?= $jogadorEdicao ? $jogadorEdicao->getBairro() : '' ?>">
+
       <label for="cidade">Cidade:</label>
       <input type="text" name="cidade" id="cidade" maxlength="100"
         value="<?= $jogadorEdicao ? $jogadorEdicao->getCidade() : '' ?>">
@@ -118,6 +125,38 @@ $jogadores = $controller->listar();
       <?php endforeach; ?>
     </table>
   </div>
+  <script>
+    const cepInput = document.getElementById('cep');
+
+    if (cepInput) {
+      cepInput.addEventListener('blur', function () {
+
+        let cep = this.value.replace(/\D/g, '');
+
+        if (cep.length !== 8) {
+          alert('CEP inválido (deve ter 8 dígitos)');
+          return;
+        }
+
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+          .then(r => r.json())
+          .then(data => {
+
+            if (!data || data.erro) {
+              alert('CEP não encontrado');
+              return;
+            }
+
+            document.getElementById('rua').value = data.logradouro || '';
+            document.getElementById('bairro').value = data.bairro || '';
+            document.getElementById('cidade').value = data.localidade || '';
+
+          })
+          .catch(() => alert('Erro ao buscar CEP'));
+      });
+    }
+  </script>
+
 </body>
 
 </html>
