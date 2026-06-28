@@ -57,5 +57,6 @@ class Jogador
     {
         return $this->cidade;
     }
+    
 
 }
