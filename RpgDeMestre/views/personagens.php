@@ -51,7 +51,7 @@ $personagens = $controller->listar();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personagens</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="personagens">
@@ -62,22 +62,36 @@ $personagens = $controller->listar();
     <?php endif; ?>
     <div>
       <label for="nome">Nome:</label>
+    </div>
+    <div>
       <input type="text" name="nome" id="nome" maxlength="100"
         value="<?= $personagemEdicao ? $personagemEdicao->getNome() : '' ?>" required>
-
+    </div>
+    <div>
       <label for="classe">Classe:</label>
+    </div>
+    <div>
       <input type="text" name="classe" id="classe" maxlength="50"
         value="<?= $personagemEdicao ? $personagemEdicao->getClasse() : '' ?>" required>
-
+    </div>
+    <div>
       <label for="nivel">Nível:</label>
+    </div>
+    <div>
       <input type="number" name="nivel" id="nivel" maxlength="3" min="1" max="100"
         value="<?= $personagemEdicao ? $personagemEdicao->getNivel() : '' ?>" required>
-
+    </div>
+    <div>
       <label for="especialidade">Especialidade:</label>
+    </div>
+    <div>
       <input type="text" name="especialidade" id="especialidade" maxlength="100"
         value="<?= $personagemEdicao ? $personagemEdicao->getEspecialidade() : '' ?>">
-
+    </div>
+    <div>
       <label for="jogador_id">Jogador:</label>
+    </div>
+    <div>
       <select name="jogador_id" id="jogador_id" required>
         <option value=""> Selecione um jogador</option>
         <?php foreach ($jogadores as $jogador): ?>
@@ -86,23 +100,27 @@ $personagens = $controller->listar();
           </option>
         <?php endforeach; ?>
       </select>
+    </div>
+    <div>
       <label for="cla_id">Clã:</label>
+    </div>
+    <div>
       <select name="cla_id" id="cla_id" required>
         <option value=""> Selecione um clã</option>
         <?php foreach ($clas as $cla): ?>
           <option value="<?= $cla->getId() ?>" <?= $personagemEdicao && $personagemEdicao->getClaId() == $cla->getId() ? 'selected' : '' ?>>
             <?= $cla->getNome() ?>
           </option>
-        </select>
-      <?php endforeach; ?>
-
-      <div>
-        <?php if ($personagemEdicao): ?>
-          <button type="submit" class="botaoSalvar">Atualizar</button>
-        <?php else: ?><button type="submit" class="botaoSalvar">Salvar</button>
-        <?php endif; ?><button type="button" class="botaoSalvar"
-          onclick="window.location.href='index.php'">Voltar</button>
-      </div>
+        <?php endforeach; ?>
+      </select>
+    </div>
+    <div>
+      <?php if ($personagemEdicao): ?>
+        <button type="submit" class="botaoSalvar">Atualizar</button>
+      <?php else: ?><button type="submit" class="botaoSalvar">Salvar</button>
+      <?php endif; ?><button type="button" class="botaoSalvar"
+        onclick="window.location.href='index.php'">Voltar</button>
+    </div>
 
   </form>
   <div class="lista">
@@ -116,6 +134,7 @@ $personagens = $controller->listar();
         <th>Especialidade</th>
         <th>Jogador</th>
         <th>Clã</th>
+        <th>Ações</th>
       </tr>
 
       <?php foreach ($personagens as $personagem): ?>

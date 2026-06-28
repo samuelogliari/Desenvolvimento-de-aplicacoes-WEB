@@ -164,15 +164,24 @@ class ClaController //cria um controller, recebe ações, controla fluxos, DAO, 
 
   // Ação de deleção: lê o POST, remove do banco e redireciona
   public function deletar()
-  {
-    $dao = new ClaDAO();
-    $dao->deletar($_POST['id']);
-
-
-    echo "<script>
-        alert('Clã excluído com sucesso!');
-        window.location.href='clas.php';
-      </script>";
+  {// Deleta clã, caso exista dependência de personagem, não autoriza e exibe mensagem de erro
+    try {
+      $dao = new ClaDao();
+      $dao->deletar($_POST['id']);
+      echo "<script>
+            alert('Clã excluído com sucesso!');
+            window.location.href='clas.php';
+        </script>";
+    } catch (\PDOException $e) {
+      if ($e->getCode() == '23503') {
+        echo "<script>
+                alert('Não é possível excluir este clã, pois existem personagens vinculados a ele.');
+                window.location.href='clas.php';
+            </script>";
+      } else {
+        throw $e;
+      }
+    }
     exit;
   }
 

@@ -43,7 +43,7 @@ $clas = $controller->listar();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clas</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="clas">
@@ -52,32 +52,34 @@ $clas = $controller->listar();
       <input type="hidden" name="id" value="<?= $claEdicao->getId() ?>">
       <input type="hidden" name="acao" value="atualizar">
     <?php endif; ?>
+
+    <label for="nome">Nome:</label>
+
+    <input type="text" name="nome" id="nome" maxlength="100" value="<?= $claEdicao ? $claEdicao->getNome() : '' ?>"
+      required>
+
+    <label for="lider">Lider:</label>
+
+    <input type="name" name="lider" id="lider" maxlength="100" value="<?= $claEdicao ? $claEdicao->getLider() : '' ?>"
+      required>
+
+    <label for="regiao">Região:</label>
+    <input type="text" name="regiao" id="regiao" maxlength="100"
+      value="<?= $claEdicao ? $claEdicao->getRegiao() : '' ?>">
+
+    <label for="descricao">Descrição:</label>
+    <input type="text" name="descricao" id="descricao" maxlength="255"
+      value="<?= $claEdicao ? $claEdicao->getDescricao() : '' ?>">
+
+
+
     <div>
-      <label for="nome">Nome:</label>
-      <input type="text" name="nome" id="nome" maxlength="100" value="<?= $claEdicao ? $claEdicao->getNome() : '' ?>"
-        required>
-
-      <label for="lider">Lider:</label>
-      <input type="name" name="lider" id="lider" maxlength="100" value="<?= $claEdicao ? $claEdicao->getLider() : '' ?>"
-        required>
-
-      <label for="regiao">Região:</label>
-      <input type="text" name="regiao" id="regiao" maxlength="100"
-        value="<?= $claEdicao ? $claEdicao->getRegiao() : '' ?>">
-
-      <label for="descricao">Descrição:</label>
-      <input type="text" name="descricao" id="descricao" maxlength="255"
-        value="<?= $claEdicao ? $claEdicao->getDescricao() : '' ?>">
-
-
-
-      <div>
-        <?php if ($claEdicao): ?>
-          <button type="submit" class="botaoSalvar">Atualizar</button>
-        <?php else: ?><button type="submit" class="botaoSalvar">Salvar</button>
-        <?php endif; ?><button type="button" class="botaoSalvar"
-          onclick="window.location.href='index.php'">Voltar</button>
-      </div>
+      <?php if ($claEdicao): ?>
+        <button type="submit" class="botaoSalvar">Atualizar</button>
+      <?php else: ?><button type="submit" class="botaoSalvar">Salvar</button>
+      <?php endif; ?><button type="button" class="botaoSalvar"
+        onclick="window.location.href='index.php'">Voltar</button>
+    </div>
 
   </form>
   <div class="lista">
@@ -89,6 +91,7 @@ $clas = $controller->listar();
         <th>Lider</th>
         <th>Região</th>
         <th>Descrição</th>
+        <th>Ações</th>
       </tr>
 
       <?php foreach ($clas as $cla): ?>

@@ -5,37 +5,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diários</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1>Diários (Mock Api)</h1>
-  <form id="formDiario">
-    <label for="titulo">Título:</label>
-    <input type="text" id="titulo" name="titulo" required>
-    <br>
-    <label for="conteudo">Conteúdo:</label>
-    <textarea id="conteudo" name="conteudo" required></textarea>
-    <br>
-    <button type="submit">Salvar Diário</button>
-    <br><br>
-    <button type="button" onclick="window.location.href='index.php'">
-      Voltar
-    </button>
+
+  <form id="formDiario" class="form">
+    <div>
+      <label for="titulo">Título:</label>
+    </div>
+    <div>
+      <input type="text" id="titulo" name="titulo" required>
+    </div>
+    <div>
+      <label for="conteudo">Conteúdo:</label>
+    </div>
+    <div>
+      <textarea id="conteudo" name="conteudo" required></textarea>
+    </div>
+    <div>
+
+
+      <button type="submit" class="botaoSalvar">Salvar</button>
+      <button type="button" class="botaoSalvar" onclick="window.location.href='index.php'">
+        Voltar
+      </button>
+    </div>
   </form>
 
-  <hr>
+
   <!--lista-->
-  <table border="1">
-    <thead>
+
+  <div class="lista">
+    <h3>Lista de Diários</h3>
+    <table>
       <tr>
         <td>ID</td>
         <th>Título</th>
         <th>Conteúdo</th>
         <th>Data</th>
       </tr>
-    </thead>
-    <tbody id="lista"></tbody> <!-- Os diarios serao adicionados aqui dinamicamente -->
-  </table>
+      <tbody id="lista"></tbody> <!-- Os diarios serao adicionados aqui dinamicamente -->
+    </table>
+  </div>
+
   <script>
     const apiURL = "../api/diariosAPI.php";
 

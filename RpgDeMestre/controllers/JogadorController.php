@@ -192,14 +192,24 @@ class JogadorController //cria um controller, recebe ações, controla fluxos, D
   // Ação de deleção: lê o POST, remove do banco e redireciona
   public function deletar()
   {
-    $dao = new JogadorDAO();
-    $dao->deletar($_POST['id']);
-
-    //excluindo mensagem
-    echo "<script> 
+    try {
+// Deleta jogador, caso exista dependência de personagem, não autoriza e exibe mensagem de erro
+      $dao = new JogadorDao();
+      $dao->deletar($_POST['id']);
+      echo "<script>
             alert('Jogador excluído com sucesso!');
             window.location.href='jogadores.php';
-          </script>";
+        </script>";
+    } catch (\PDOException $e) {
+      if ($e->getCode() == '23503') {
+        echo "<script> 
+                alert('Não é possível excluir este jogador, pois existem personagens vinculados a ele.');
+                window.location.href='jogadores.php';
+            </script>";
+      } else {
+        throw $e;
+      }
+    }
     exit;
   }
 

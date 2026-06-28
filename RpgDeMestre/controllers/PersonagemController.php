@@ -199,14 +199,25 @@ class PersonagemController //cria um controller, recebe ações, controla fluxos
   // le o POST, remove do banco e redireciona
   public function deletar()
   {
-    $dao = new PersonagemDAO();
-    $dao->deletar($_POST['id']);
+    try {
 
-    //excluindo mensagem
-    echo "<script> 
+      $dao = new PersonagemDao();
+      $dao->deletar($_POST['id']);
+
+      echo "<script>
             alert('Personagem excluído com sucesso!');
             window.location.href='personagens.php';
-          </script>";
+        </script>";
+
+    } catch (PDOException $e) {
+
+      echo "<script>
+            alert('Não é possível excluir este personagem, pois existem itens vinculados a ele.');
+            window.location.href='personagens.php';
+        </script>";
+
+    }
+
     exit;
   }
 }
