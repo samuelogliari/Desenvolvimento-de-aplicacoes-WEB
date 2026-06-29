@@ -31,7 +31,7 @@ CREATE TABLE itens (
     nome VARCHAR(100) NOT NULL,
     tipo VARCHAR(50) NOT NULL,
     raridade VARCHAR(50) NOT NULL,
-    valor NUMERIC(10,2),
+    valor NUMERIC(10,2) NOT NULL,
     personagem_id INTEGER REFERENCES personagens(id)
 );
 

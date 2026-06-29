@@ -53,12 +53,12 @@ $clas = $controller->listar();
       <input type="hidden" name="acao" value="atualizar">
     <?php endif; ?>
 
-    <label for="nome">Nome:</label>
+    <label for="nome">Nome: *</label>
 
     <input type="text" name="nome" id="nome" maxlength="100" value="<?= $claEdicao ? $claEdicao->getNome() : '' ?>"
       required>
 
-    <label for="lider">Lider:</label>
+    <label for="lider">Lider: *</label>
 
     <input type="name" name="lider" id="lider" maxlength="100" value="<?= $claEdicao ? $claEdicao->getLider() : '' ?>"
       required>

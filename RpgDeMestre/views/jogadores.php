@@ -54,19 +54,19 @@ $jogadores = $controller->listar();
       <input type="hidden" name="acao" value="atualizar">
     <?php endif; ?>
 
-    <label for="nome">Nome:</label>
+    <label for="nome">Nome: *</label>
     <input type="text" name="nome" id="nome" maxlength="100"
       value="<?= $jogadorEdicao ? $jogadorEdicao->getNome() : '' ?>" required>
 
-    <label for="email">Email:</label>
+    <label for="email">Email: *</label>
     <input type="email" name="email" id="email" maxlength="100"
       value="<?= $jogadorEdicao ? $jogadorEdicao->getEmail() : '' ?>" required>
 
-    <label for="cep">CEP:</label>
+    <label for="cep">CEP: *</label>
     <input type="text" name="cep" id="cep" maxlength="9" pattern="[0-9]{5}-?[0-9]{3}"
       value="<?= $jogadorEdicao ? $jogadorEdicao->getCep() : '' ?>" required>
 
-    <label for="rua">Rua:</label>
+    <label for="rua">Rua: *</label>
     <input type="text" name="rua" id="rua" maxlength="100" value="<?= $jogadorEdicao ? $jogadorEdicao->getRua() : '' ?>"
       required>
 

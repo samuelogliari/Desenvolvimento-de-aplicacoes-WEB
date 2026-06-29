@@ -50,7 +50,7 @@
   </div>
 
   <script>
-    const apiURL = "../api/diariosAPI.php";
+    const apiURL = "https://6a41b5027602860e6520651a.mockapi.io/api/v1/diario";
 
     //LISTAR com get
     async function carregarDiarios() {
@@ -80,11 +80,11 @@
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ titulo, conteudo })
+        body: JSON.stringify({ titulo, conteudo, data: new Date().toLocaleDateString("pt-BR") })
       });
 
       const result = await res.json();
-      alert(result.mensagem);
+      alert("Diário salvo com sucesso!");
       document.getElementById("formDiario").reset();
       carregarDiarios(); //atualiza lista depois de salvar
     });

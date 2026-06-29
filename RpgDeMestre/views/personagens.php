@@ -61,21 +61,21 @@ $personagens = $controller->listar();
       <input type="hidden" name="acao" value="atualizar">
     <?php endif; ?>
     <div>
-      <label for="nome">Nome:</label>
+      <label for="nome">Nome: *</label>
     </div>
     <div>
       <input type="text" name="nome" id="nome" maxlength="100"
         value="<?= $personagemEdicao ? $personagemEdicao->getNome() : '' ?>" required>
     </div>
     <div>
-      <label for="classe">Classe:</label>
+      <label for="classe">Classe: *</label>
     </div>
     <div>
       <input type="text" name="classe" id="classe" maxlength="50"
         value="<?= $personagemEdicao ? $personagemEdicao->getClasse() : '' ?>" required>
     </div>
     <div>
-      <label for="nivel">Nível:</label>
+      <label for="nivel">Nível: *</label>
     </div>
     <div>
       <input type="number" name="nivel" id="nivel" maxlength="3" min="1" max="100"
@@ -89,7 +89,7 @@ $personagens = $controller->listar();
         value="<?= $personagemEdicao ? $personagemEdicao->getEspecialidade() : '' ?>">
     </div>
     <div>
-      <label for="jogador_id">Jogador:</label>
+      <label for="jogador_id">Jogador: *</label>
     </div>
     <div>
       <select name="jogador_id" id="jogador_id" required>
@@ -102,7 +102,7 @@ $personagens = $controller->listar();
       </select>
     </div>
     <div>
-      <label for="cla_id">Clã:</label>
+      <label for="cla_id">Clã: *</label>
     </div>
     <div>
       <select name="cla_id" id="cla_id" required>

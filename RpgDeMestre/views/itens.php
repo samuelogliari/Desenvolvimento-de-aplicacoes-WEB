@@ -48,24 +48,24 @@ if (isset($_GET['id'])) {
       <input type="hidden" name="id" value="<?= $itemEdicao->getId() ?>">
       <input type="hidden" name="acao" value="atualizar">
     <?php endif; ?>
-    
-      <label for="nome">Nome:</label>
-      <input type="text" name="nome" id="nome" maxlength="100" value="<?= $itemEdicao ? $itemEdicao->getNome() : '' ?>"
-        required>
-   
-    <label for="tipo">Tipo:</label>
+
+    <label for="nome">Nome: *</label>
+    <input type="text" name="nome" id="nome" maxlength="100" value="<?= $itemEdicao ? $itemEdicao->getNome() : '' ?>"
+      required>
+
+    <label for="tipo">Tipo: *</label>
     <input type="text" name="tipo" id="tipo" maxlength="50" value="<?= $itemEdicao ? $itemEdicao->getTipo() : '' ?>"
       required>
 
-    <label for="raridade">Raridade:</label>
+    <label for="raridade">Raridade: *</label>
     <input type="text" name="raridade" id="raridade" maxlength="50"
       value="<?= $itemEdicao ? $itemEdicao->getRaridade() : '' ?>" required>
 
-    <label for="valor">Valor:</label>
+    <label for="valor">Valor: *</label>
     <input type="number" name="valor" id="valor" maxlength="10" min="0" step="0.01"
       value="<?= $itemEdicao ? $itemEdicao->getValor() : '' ?>" required>
 
-    <label for="personagem_id">Personagem:</label>
+    <label for="personagem_id">Personagem: *</label>
     <select name="personagem_id" id="personagem_id" required>
 
       <option value=""> Selecione um personagem</option>
