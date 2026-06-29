@@ -120,13 +120,7 @@ class PersonagemController //cria um controller, recebe ações, controla fluxos
           </script>";
       exit;
     }
-    if (trim($_POST['especialidade']) == "") {
-      echo "<script>
-            alert('Informe a especialidade do personagem.');
-            history.back();
-          </script>";
-      exit;
-    }
+
     if (strlen($_POST['nome']) > 100) { //validação de nome se tem menos de 100, com alert e history.back() para voltar a pagina anterior
       echo "<script>
             alert('O nome pode ter no máximo 100 caracteres.');
