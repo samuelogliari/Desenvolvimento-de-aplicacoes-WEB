@@ -34,9 +34,9 @@ class PersonagemDao                                             //cria a classe 
   public function listar() //listar que comporta puxar o nome inves do id
   {
     $sql = " SELECT p.*, j.nome AS jogador_nome, c.nome AS cla_nome 
-FROM personagens p
-INNER JOIN jogadores j ON p.jogador_id = j.id
-INNER JOIN clas c ON p.cla_id = c.id";
+            FROM personagens p
+        INNER JOIN jogadores j ON p.jogador_id = j.id
+        INNER JOIN clas c ON p.cla_id = c.id";
 
     $stmt = $this->connection->query($sql);           //usa query, porque nao tem parametros e é algo mais simples(não precisa preparar)
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);        //faz o PDO retornar corretamente, o fetch_assoc, faz vir os valores inves de indices numericos

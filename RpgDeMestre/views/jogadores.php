@@ -7,34 +7,35 @@ $controller = new JogadorController();
 $jogadorEdicao = null;
 
 // Processa formulários
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //verifica se usuario foi enviado
 
-  if (isset($_POST['acao'])) {
+  if (isset($_POST['acao'])) { //issets "existe a variavel?" se sim, POST acao
+  // pode valer como att ou delet
 
     if ($_POST['acao'] == 'atualizar') {
 
-      $controller->atualizar();
+      $controller->atualizar(); //view chama o att, se o usuario pediu
 
     } elseif ($_POST['acao'] == 'deletar') {
 
-      $controller->deletar();
+      $controller->deletar(); //view chama o del
 
     }
 
   } else {
 
-    $controller->salvar();
+    $controller->salvar(); //chama salvar
 
   }
 
 }
 
 // Se vier pela URL
-if (isset($_GET['id'])) {
-  $jogadorEdicao = $controller->buscarPorId($_GET['id']);
+if (isset($_GET['id'])) { //não enviou form, clicou em editar, geta id, e pede o objeto do id selecionado
+  $jogadorEdicao = $controller->buscarPorId($_GET['id']); // assim o $jogadorEdicao apssa a guardar um obj
 }
 
-$jogadores = $controller->listar();
+$jogadores = $controller->listar(); //devolve a tabela independente 
 
 ?>
 <!DOCTYPE html>
@@ -49,6 +50,7 @@ $jogadores = $controller->listar();
 
 <body class="jogadores">
   <form method="post" action="" class="form">
+    
     <?php if ($jogadorEdicao): ?>
       <input type="hidden" name="id" value="<?= $jogadorEdicao->getId() ?>"> <!--Aparece o id, mas invisivel -->
       <input type="hidden" name="acao" value="atualizar">
@@ -93,7 +95,7 @@ $jogadores = $controller->listar();
       <tr>
         <th>ID</th>
         <th>Nome</th>
-        <th>Email</th>
+        <th>Email</th> 
         <th>CEP</th>
         <th>Rua</th>
         <th>Bairro</th>
